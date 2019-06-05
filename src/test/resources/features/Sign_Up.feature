@@ -1,19 +1,22 @@
 Feature: User Registration on Doordash web app
 
-  Scenario Outline : User should be able to sign up with valid input
 
+  Background:
     Given user is already on Sign Up Page
     When title of sign up page is "DoorDash Food Delivery | Restaurant Delivery"
+
+
+  Scenario Outline : User should be able to sign up with valid input
     Then user enters valid "<firstname>", "<lastname>" and "<email>"
-    And  user enters "<phone>" and "<password>"
+    And  user enters valid "<phone>" and "<password>"
     When user clicks on SignUp button
     Then Home Page should be displayed
 
     Examples:
       | firstname  |  lastname |  email                    |  phone        | password |
       | Amanda     |  Anderson |  dariana.osinski@yahoo.com|  202-555-0119 | 123456   |
-      
-      
+
+
 
   Scenario Outline: User should not be able to sign up with invalid phone number
     Then user enters valid "<firstname>", "<lastname>" and "<email>"
